@@ -6,10 +6,16 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Private Key Format Auto-Fix
+let privateKey = process.env.FIREBASE_PRIVATE_KEY || "";
+if (privateKey) {
+  privateKey = privateKey.replace(/^"(.*)"$/, '$1').replace(/\\n/g, '\n');
+}
+
 const serviceAccount = {
   "type": "service_account",
   "project_id": "zoobii-96664",
-  "private_key": process.env.FIREBASE_PRIVATE_KEY ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n') : "",
+  "private_key": privateKey,
   "client_email": "firebase-adminsdk-fbsvc@zoobii-96664.iam.gserviceaccount.com"
 };
 
