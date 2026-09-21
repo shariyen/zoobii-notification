@@ -1,13 +1,14 @@
 {
-  "name": "zoobii-notification",
+  "name": "zoobii-notification-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "FCM Push Notification API for Zoobii App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "firebase-admin": "^11.8.0"
-  },
-  "scripts": {
-    "start": "node index.js"
+    "firebase-admin": "^11.11.1"
   }
 }
